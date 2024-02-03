@@ -11,8 +11,8 @@ struct ContentView: View {
     @State var firstName: String
     @State var lastName: String
     @State var prefName: String
-    @State var selectedOption = 0
     @State var answer: String
+    @State var selectedOption = 0
     
     let options: [String] = ["What is your favourite color?","What do you like to do during your spare time?","What is your aim?"]
     var body: some View {
