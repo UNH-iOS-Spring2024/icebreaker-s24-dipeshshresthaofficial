@@ -11,7 +11,7 @@ import SwiftUI
 struct Shrestha_Icebreaker_S24App: App {
     var body: some Scene {
         WindowGroup {
-            ContentView(firstName: "", lastName: "", prefName: "", answer: "")
+            ContentView()
         }
     }
 }
