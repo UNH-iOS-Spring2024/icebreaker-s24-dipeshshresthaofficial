@@ -53,6 +53,8 @@ struct ContentView: View {
             
             Button(action: {
                 // Logic to push it into database
+                print("Printing User info in console:")
+                print("User Info:\n First Name: \(firstName)\n LastName: \(lastName)\n Preferred Name: \(prefName)\n Question: \(options[selectedOption])\n Answer: \(answer)")
             }){
                 Text("Submit")
                     .frame(width: 320)
