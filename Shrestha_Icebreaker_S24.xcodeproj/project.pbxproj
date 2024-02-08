@@ -39,13 +39,13 @@
 		13B013762B6ECB56003B9D64 /* FirebaseRemoteConfigSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 13B013752B6ECB56003B9D64 /* FirebaseRemoteConfigSwift */; };
 		13B013782B6ECB56003B9D64 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 13B013772B6ECB56003B9D64 /* FirebaseStorage */; };
 		13B0137A2B6ECB56003B9D64 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 13B013792B6ECB56003B9D64 /* FirebaseStorageCombine-Community */; };
-		13B0137C2B71A0D5003B9D64 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 13B0137B2B71A0D5003B9D64 /* GoogleService-Info.plist */; };
 		13B0137E2B71A10C003B9D64 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 13B0137D2B71A10C003B9D64 /* FirebaseAnalytics */; };
 		13B013802B71A10C003B9D64 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = 13B0137F2B71A10C003B9D64 /* FirebaseAnalyticsOnDeviceConversion */; };
 		13B013822B71A10C003B9D64 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 13B013812B71A10C003B9D64 /* FirebaseAnalyticsSwift */; };
 		13B013842B71A10C003B9D64 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 13B013832B71A10C003B9D64 /* FirebaseAnalyticsWithoutAdIdSupport */; };
 		13B013862B71A10C003B9D64 /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = 13B013852B71A10C003B9D64 /* FirebaseAppCheck */; };
 		13B0138A2B746D78003B9D64 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B013892B746D77003B9D64 /* UserData.swift */; };
+		13B0138E2B748788003B9D64 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 13B0138D2B748788003B9D64 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,8 +55,8 @@
 		13B013332B6E1016003B9D64 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		13B013362B6E1016003B9D64 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		13B0133D2B6E1027003B9D64 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		13B0137B2B71A0D5003B9D64 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		13B013892B746D77003B9D64 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		13B0138D2B748788003B9D64 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,7 +105,7 @@
 		13B013232B6E1015003B9D64 = {
 			isa = PBXGroup;
 			children = (
-				13B0137B2B71A0D5003B9D64 /* GoogleService-Info.plist */,
+				13B0138D2B748788003B9D64 /* GoogleService-Info.plist */,
 				13B0133D2B6E1027003B9D64 /* .gitignore */,
 				13B0132E2B6E1015003B9D64 /* Shrestha_Icebreaker_S24 */,
 				13B0132D2B6E1015003B9D64 /* Products */,
@@ -238,7 +238,7 @@
 				13B013372B6E1016003B9D64 /* Preview Assets.xcassets in Resources */,
 				13B0133E2B6E1027003B9D64 /* .gitignore in Resources */,
 				13B013342B6E1016003B9D64 /* Assets.xcassets in Resources */,
-				13B0137C2B71A0D5003B9D64 /* GoogleService-Info.plist in Resources */,
+				13B0138E2B748788003B9D64 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
