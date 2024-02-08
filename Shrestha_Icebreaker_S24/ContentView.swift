@@ -9,6 +9,8 @@ import SwiftUI
 import FirebaseFirestore
 
 struct ContentView: View {
+    @State private var showAlertText: Bool = false
+    
     @State private var firstName: String = ""
     @State private var lastName: String = ""
     @State private var prefName: String = ""
@@ -73,6 +75,10 @@ struct ContentView: View {
             .buttonStyle(.borderedProminent)
         }
         .padding()
+        .alert(isPresented: $showAlertText, content: {
+            // Display this alert when $showAlertText is true
+            Alert(title: Text("Submission Successful"), message: Text("Your form has been submitted successfully."), dismissButton: .default(Text("OK")))
+        })
         Spacer()
     }
     
@@ -85,6 +91,9 @@ struct ContentView: View {
             let encodedUser = try Firestore.Encoder().encode(user)
             // Pushing the encoded data to the firestore
             try db.collection("users").addDocument(data: encodedUser)
+            
+            // Show alert
+            showAlertText = true
         } catch {
             // Handle encoding errors here
             print("Error encoding user: \(error)")
