@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FirebaseFirestore
 
 struct ContentView: View {
     @State private var firstName: String = ""
@@ -15,8 +16,15 @@ struct ContentView: View {
     @State private var selectedOption = 0
     
     let options: [String] = ["What is your favourite color?","What do you like to do during your spare time?","What is your aim?"]
+    
+    let db = Firestore.firestore()
+    
     var body: some View {
         VStack {
+            Image(.iceBreaker)
+                .resizable()
+                .frame(width: 175, height:175)
+                .padding()
             HStack {
                 TextField("First Name", text: $firstName)
                     .padding()
@@ -52,9 +60,11 @@ struct ContentView: View {
                 .padding()
             
             Button(action: {
-                // Logic to push it into database
-                print("Printing User info in console:")
-                print("User Info:\n First Name: \(firstName)\n LastName: \(lastName)\n Preferred Name: \(prefName)\n Question: \(options[selectedOption])\n Answer: \(answer)")
+                // push the data to Database
+                pushDataToDb()
+                
+                // reset all the textfields
+                resetTxtFields()
             }){
                 Text("Submit")
                     .frame(width: 320)
@@ -64,6 +74,29 @@ struct ContentView: View {
         }
         .padding()
         Spacer()
+    }
+    
+    func pushDataToDb(){
+        // Logic to push it into database
+        let user = UserData(firstName: firstName, lastName: lastName, prefName: prefName, question: options[selectedOption], answer: answer)
+        
+        do {
+            // Encoding User model data to the format that Firestore understands
+            let encodedUser = try Firestore.Encoder().encode(user)
+            // Pushing the encoded data to the firestore
+            try db.collection("users").addDocument(data: encodedUser)
+        } catch {
+            // Handle encoding errors here
+            print("Error encoding user: \(error)")
+            return // or throw, depending on your context
+        }
+    }
+    
+    func resetTxtFields(){
+        firstName = ""
+        lastName = ""
+        prefName = ""
+        answer = ""
     }
 }
 
