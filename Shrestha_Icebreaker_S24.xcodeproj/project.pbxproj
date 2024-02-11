@@ -46,6 +46,9 @@
 		13B013862B71A10C003B9D64 /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = 13B013852B71A10C003B9D64 /* FirebaseAppCheck */; };
 		13B0138A2B746D78003B9D64 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B013892B746D77003B9D64 /* UserData.swift */; };
 		13B0138E2B748788003B9D64 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 13B0138D2B748788003B9D64 /* GoogleService-Info.plist */; };
+		13B013922B768052003B9D64 /* UserDataListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B013912B768052003B9D64 /* UserDataListView.swift */; };
+		13B013942B76C25D003B9D64 /* UserDataRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B013932B76C25D003B9D64 /* UserDataRowView.swift */; };
+		13B013962B77D489003B9D64 /* UserDataDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B013952B77D489003B9D64 /* UserDataDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +60,9 @@
 		13B0133D2B6E1027003B9D64 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		13B013892B746D77003B9D64 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		13B0138D2B748788003B9D64 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		13B013912B768052003B9D64 /* UserDataListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataListView.swift; sourceTree = "<group>"; };
+		13B013932B76C25D003B9D64 /* UserDataRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataRowView.swift; sourceTree = "<group>"; };
+		13B013952B77D489003B9D64 /* UserDataDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +134,9 @@
 				13B013332B6E1016003B9D64 /* Assets.xcassets */,
 				13B013352B6E1016003B9D64 /* Preview Content */,
 				13B013892B746D77003B9D64 /* UserData.swift */,
+				13B013912B768052003B9D64 /* UserDataListView.swift */,
+				13B013932B76C25D003B9D64 /* UserDataRowView.swift */,
+				13B013952B77D489003B9D64 /* UserDataDetailView.swift */,
 			);
 			path = Shrestha_Icebreaker_S24;
 			sourceTree = "<group>";
@@ -250,7 +259,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B0138A2B746D78003B9D64 /* UserData.swift in Sources */,
+				13B013922B768052003B9D64 /* UserDataListView.swift in Sources */,
+				13B013962B77D489003B9D64 /* UserDataDetailView.swift in Sources */,
 				13B013322B6E1015003B9D64 /* ContentView.swift in Sources */,
+				13B013942B76C25D003B9D64 /* UserDataRowView.swift in Sources */,
 				13B013302B6E1015003B9D64 /* Shrestha_Icebreaker_S24App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
