@@ -49,6 +49,8 @@
 		13B013922B768052003B9D64 /* UserDataListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B013912B768052003B9D64 /* UserDataListView.swift */; };
 		13B013942B76C25D003B9D64 /* UserDataRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B013932B76C25D003B9D64 /* UserDataRowView.swift */; };
 		13B013962B77D489003B9D64 /* UserDataDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B013952B77D489003B9D64 /* UserDataDetailView.swift */; };
+		13B013982B792D0C003B9D64 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B013972B792D0C003B9D64 /* Question.swift */; };
+		13B0139A2B792EA7003B9D64 /* AddQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B013992B792EA7003B9D64 /* AddQuestionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +65,8 @@
 		13B013912B768052003B9D64 /* UserDataListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataListView.swift; sourceTree = "<group>"; };
 		13B013932B76C25D003B9D64 /* UserDataRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataRowView.swift; sourceTree = "<group>"; };
 		13B013952B77D489003B9D64 /* UserDataDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataDetailView.swift; sourceTree = "<group>"; };
+		13B013972B792D0C003B9D64 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		13B013992B792EA7003B9D64 /* AddQuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddQuestionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +141,8 @@
 				13B013912B768052003B9D64 /* UserDataListView.swift */,
 				13B013932B76C25D003B9D64 /* UserDataRowView.swift */,
 				13B013952B77D489003B9D64 /* UserDataDetailView.swift */,
+				13B013972B792D0C003B9D64 /* Question.swift */,
+				13B013992B792EA7003B9D64 /* AddQuestionView.swift */,
 			);
 			path = Shrestha_Icebreaker_S24;
 			sourceTree = "<group>";
@@ -262,7 +268,9 @@
 				13B013922B768052003B9D64 /* UserDataListView.swift in Sources */,
 				13B013962B77D489003B9D64 /* UserDataDetailView.swift in Sources */,
 				13B013322B6E1015003B9D64 /* ContentView.swift in Sources */,
+				13B0139A2B792EA7003B9D64 /* AddQuestionView.swift in Sources */,
 				13B013942B76C25D003B9D64 /* UserDataRowView.swift in Sources */,
+				13B013982B792D0C003B9D64 /* Question.swift in Sources */,
 				13B013302B6E1015003B9D64 /* Shrestha_Icebreaker_S24App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
