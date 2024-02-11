@@ -17,8 +17,6 @@ struct ContentView: View {
     @State private var answer: String = ""
     @State private var selectedOption = 0
     
-    @State var users = [UserData]()
-    
     let options: [String] = ["What is your favourite color?","What do you like to do during your spare time?","What is your aim?"]
     
     let db = Firestore.firestore()
@@ -30,7 +28,7 @@ struct ContentView: View {
                     HStack{
                         Spacer()
                         NavigationLink{
-                            UserDataListView(users: users)
+                            UserDataListView()
                         }label: {
                             Image(systemName: "person.3.fill")
                                 .font(.subheadline)
@@ -101,30 +99,10 @@ struct ContentView: View {
                     Alert(title: Text("Submission Successful"), message: Text("Your form has been submitted successfully."), dismissButton: .default(Text("OK")))
                 })
                 .onAppear(){
-                    getUserDataFromDB()
+                    
                 }
             }
         }
-    }
-    
-    func getUserDataFromDB(){
-        self.users = [] // emptying array before pulling records from database
-        
-        // pull data from database
-        db.collection("users")
-            .getDocuments(){ (querySnapshot, err) in
-                if let err = err{
-                    print("DEBUG: Couldn't get user documents \(err) ")
-                }else{
-                    for document in querySnapshot!.documents{
-                        if let userData = UserData(id: document.documentID, data: document.data()){
-                            self.users.append(userData)
-                        }
-                    }
-                    
-                }
-                
-            }
     }
     
     func pushDataToDb(){
@@ -146,9 +124,6 @@ struct ContentView: View {
             
             // Show alert
             showAlertText = true
-            
-            // Pull updated data from database
-            getUserDataFromDB()
         } catch {
             // Handle encoding errors here
             print("Error encoding user: \(error)")
