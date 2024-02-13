@@ -15,7 +15,9 @@ struct ContentView: View {
     @State private var lastName: String = ""
     @State private var prefName: String = ""
     @State private var answer: String = ""
-    @State private var selectedOption = 0
+    @State private var question = ""
+
+    @State var questions = [Question]()
     
     let options: [String] = ["What is your favourite color?","What do you like to do during your spare time?","What is your aim?"]
     
@@ -24,23 +26,6 @@ struct ContentView: View {
     var body: some View {
         NavigationView{
             ZStack(){
-                VStack{
-                    HStack{
-                        Spacer()
-                        NavigationLink{
-                            UserDataListView()
-                        }label: {
-                            Image(systemName: "person.3.fill")
-                                .font(.subheadline)
-                                .padding()
-                                .background(Color.blue)
-                                .foregroundColor(Color.white)
-                                .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
-                        }
-                        .padding()
-                    }
-                    Spacer()
-                }
                 VStack {
                     Image(.iceBreaker)
                         .resizable()
@@ -65,9 +50,10 @@ struct ContentView: View {
                         .background(Color.black.opacity(0.06))
                         .cornerRadius(8)
                     
-                    Picker("Select a Question", selection: $selectedOption){
-                        ForEach(0 ..< options.count){
-                            Text(self.options[$0])
+                    Picker("Select a Question", selection: $question){
+                        ForEach(questions, id: \.id){ question in
+                            Text(question.text)
+    
                         }
                     }
                     .pickerStyle(MenuPickerStyle())
@@ -92,17 +78,70 @@ struct ContentView: View {
                             .padding(.vertical, 5)
                     }
                     .buttonStyle(.borderedProminent)
+                    Spacer()
                 }
-                .padding(.bottom)
                 .alert(isPresented: $showAlertText, content: {
                     // Display this alert when $showAlertText is true
                     Alert(title: Text("Submission Successful"), message: Text("Your form has been submitted successfully."), dismissButton: .default(Text("OK")))
                 })
                 .onAppear(){
-                    
+                    // pull questions from database on navigating to this view
+                    getQuestionsFromDB()
+                }
+                
+                VStack{
+                    Spacer()
+                    HStack{
+                        Spacer()
+                        NavigationLink{
+                            UserDataListView()
+                        }label: {
+                            Image(systemName: "person.3.fill")
+                                .font(.subheadline)
+                                .padding()
+                                .background(Color.blue)
+                                .foregroundColor(Color.white)
+                                .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
+                        }
+                    }
+                }
+                .padding(.bottom, 75)
+                .padding(.horizontal,12)
+                
+                VStack{
+                    Spacer()
+                    HStack{
+                        Spacer()
+                        NavigationLink{
+                            
+                        }label: {
+                            Image(systemName: "plus")
+                                .font(.title3)
+                                .padding()
+                                .background(Color.blue)
+                                .foregroundColor(Color.white)
+                                .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
+                        }
+                    }
+                    .padding()
                 }
             }
         }
+    }
+    
+    func getQuestionsFromDB(){
+        db.collection("questions")
+            .getDocuments() { querySnapshot, err in
+                if let err = err{
+                    print("DEBUG: Error in getting documents.")
+                }else{
+                    for document in querySnapshot!.documents{
+                        if let questionData = Question(id: document.documentID, data: document.data()) {
+                            self.questions.append(questionData)
+                        }
+                    }
+                }
+            }
     }
     
     func pushDataToDb(){
@@ -111,7 +150,7 @@ struct ContentView: View {
             "firstName": firstName,
             "lastName": lastName,
             "prefName": prefName,
-            "question": options[selectedOption],
+            "question": question,
             "answer" : answer
         ]
         let user = UserData(id: "",data: userData)
