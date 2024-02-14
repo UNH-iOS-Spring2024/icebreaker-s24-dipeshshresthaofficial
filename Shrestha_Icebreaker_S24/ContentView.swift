@@ -10,12 +10,13 @@ import FirebaseFirestore
 
 struct ContentView: View {
     @State private var showAlertText: Bool = false
+    @State private var alertMsg: String = ""
     
     @State private var firstName: String = ""
     @State private var lastName: String = ""
     @State private var prefName: String = ""
     @State private var answer: String = ""
-    @State private var question = ""
+    @State private var question: String = ""
 
     @State var questions = [Question]()
     
@@ -51,9 +52,8 @@ struct ContentView: View {
                         .cornerRadius(8)
                     
                     Picker("Select a Question", selection: $question){
-                        ForEach(questions, id: \.id){ question in
+                        ForEach(questions, id: \.text){ question in
                             Text(question.text)
-    
                         }
                     }
                     .pickerStyle(MenuPickerStyle())
@@ -82,7 +82,7 @@ struct ContentView: View {
                 }
                 .alert(isPresented: $showAlertText, content: {
                     // Display this alert when $showAlertText is true
-                    Alert(title: Text("Submission Successful"), message: Text("Your form has been submitted successfully."), dismissButton: .default(Text("OK")))
+                    Alert(title: Text("Submission Successful"), message: Text(alertMsg), dismissButton: .default(Text("OK")))
                 })
                 .onAppear(){
                     // pull questions from database on navigating to this view
@@ -113,7 +113,7 @@ struct ContentView: View {
                     HStack{
                         Spacer()
                         NavigationLink{
-                            
+                            AddQuestionView(question: "")
                         }label: {
                             Image(systemName: "plus")
                                 .font(.title3)
@@ -137,6 +137,8 @@ struct ContentView: View {
             .getDocuments() { querySnapshot, err in
                 if let err = err{
                     print("DEBUG: Error in getting documents.")
+                    alertMsg = "Error in getting documents."
+                    showAlertText = true
                 }else{
                     for document in querySnapshot!.documents{
                         if let questionData = Question(id: document.documentID, data: document.data()) {
@@ -149,27 +151,35 @@ struct ContentView: View {
     
     func pushDataToDb(){
         // Logic to push it into database
-        let userData = [
-            "firstName": firstName,
-            "lastName": lastName,
-            "prefName": prefName,
-            "question": question,
-            "answer" : answer
-        ]
-        let user = UserData(id: "",data: userData)
-        
-        do {
-            // Encoding User model data to the format that Firestore understands
-            let encodedUser = try Firestore.Encoder().encode(user)
-            // Pushing the encoded data to the firestore
-            try db.collection("users").addDocument(data: encodedUser)
-            
-            // Show alert
+        if(firstName.isEmpty || lastName.isEmpty || question.isEmpty || answer.isEmpty){
+            print("Please complete the form to submit successfully.")
+            alertMsg = "Please complete the form to submit it successfully."
             showAlertText = true
-        } catch {
-            // Handle encoding errors here
-            print("Error encoding user: \(error)")
-            return // or throw, depending on your context
+            
+        }else{
+            let userData = [
+                "firstName": firstName,
+                "lastName": lastName,
+                "prefName": prefName,
+                "question": question,
+                "answer" : answer
+            ]
+            let user = UserData(id: "",data: userData)
+            
+            do {
+                // Encoding User model data to the format that Firestore understands
+                let encodedUser = try Firestore.Encoder().encode(user)
+                // Pushing the encoded data to the firestore
+                try db.collection("users").addDocument(data: encodedUser)
+                
+                // Show alert
+                alertMsg = "Form Submitted Successfully."
+                showAlertText = true
+            } catch {
+                // Handle encoding errors here
+                print("Error encoding user: \(error)")
+                return // or throw, depending on your context
+            }
         }
     }
     

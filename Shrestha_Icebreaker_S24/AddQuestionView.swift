@@ -11,6 +11,7 @@ import FirebaseFirestore
 struct AddQuestionView: View {
     @State var question: String
     @State var showAlertDialog: Bool = false
+    @State var alertMsg: String = ""
     
     let db = Firestore.firestore()
     
@@ -31,14 +32,18 @@ struct AddQuestionView: View {
         }
         .padding()
         .alert(isPresented: $showAlertDialog, content: {
-            Alert(title: Text("Submission Status"),message: Text("Question has been successfully submitted to the database."), dismissButton: .default(Text("Ok")))
+            Alert(title: Text("Submission Status"),message: Text(alertMsg), dismissButton: .default(Text("Ok")))
         })
+        .navigationTitle("Add Question")
     }
     
     // logic to add question to database
     func addQuestionToDB(){
         if(question.isEmpty){
             print("DEBUG: Question field cannot be empty")
+            alertMsg = "Question field cannot be empty"
+            showAlertDialog = true
+            
         }else{
             // creating a dictionary for Question Model
             let mQuestion = [
@@ -54,6 +59,7 @@ struct AddQuestionView: View {
                 try db.collection("questions").addDocument(data: encodedQuestion)
                 
                 // activate Alert Diaglogue box
+                alertMsg = "Question has been successfully submitted to the database."
                 showAlertDialog = true
                 
                 // reset the form fields
