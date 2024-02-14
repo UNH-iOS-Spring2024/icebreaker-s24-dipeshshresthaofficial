@@ -130,6 +130,9 @@ struct ContentView: View {
     }
     
     func getQuestionsFromDB(){
+        // emptying the array before adding all questions from DB
+        self.questions = []
+        
         db.collection("questions")
             .getDocuments() { querySnapshot, err in
                 if let err = err{
