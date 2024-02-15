@@ -51,6 +51,7 @@
 		13B013962B77D489003B9D64 /* UserDataDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B013952B77D489003B9D64 /* UserDataDetailView.swift */; };
 		13B013982B792D0C003B9D64 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B013972B792D0C003B9D64 /* Question.swift */; };
 		13B0139A2B792EA7003B9D64 /* AddQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B013992B792EA7003B9D64 /* AddQuestionView.swift */; };
+		13B0139E2B7E6E51003B9D64 /* IcebreakerMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B0139D2B7E6E51003B9D64 /* IcebreakerMainView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +68,7 @@
 		13B013952B77D489003B9D64 /* UserDataDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataDetailView.swift; sourceTree = "<group>"; };
 		13B013972B792D0C003B9D64 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		13B013992B792EA7003B9D64 /* AddQuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddQuestionView.swift; sourceTree = "<group>"; };
+		13B0139D2B7E6E51003B9D64 /* IcebreakerMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IcebreakerMainView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,16 +135,12 @@
 		13B0132E2B6E1015003B9D64 /* Shrestha_Icebreaker_S24 */ = {
 			isa = PBXGroup;
 			children = (
+				13B0139C2B7E6E14003B9D64 /* Models */,
+				13B0139B2B7E6B9A003B9D64 /* Views */,
 				13B0132F2B6E1015003B9D64 /* Shrestha_Icebreaker_S24App.swift */,
 				13B013312B6E1015003B9D64 /* ContentView.swift */,
 				13B013332B6E1016003B9D64 /* Assets.xcassets */,
 				13B013352B6E1016003B9D64 /* Preview Content */,
-				13B013892B746D77003B9D64 /* UserData.swift */,
-				13B013912B768052003B9D64 /* UserDataListView.swift */,
-				13B013932B76C25D003B9D64 /* UserDataRowView.swift */,
-				13B013952B77D489003B9D64 /* UserDataDetailView.swift */,
-				13B013972B792D0C003B9D64 /* Question.swift */,
-				13B013992B792EA7003B9D64 /* AddQuestionView.swift */,
 			);
 			path = Shrestha_Icebreaker_S24;
 			sourceTree = "<group>";
@@ -153,6 +151,27 @@
 				13B013362B6E1016003B9D64 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		13B0139B2B7E6B9A003B9D64 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				13B013912B768052003B9D64 /* UserDataListView.swift */,
+				13B013932B76C25D003B9D64 /* UserDataRowView.swift */,
+				13B013952B77D489003B9D64 /* UserDataDetailView.swift */,
+				13B013992B792EA7003B9D64 /* AddQuestionView.swift */,
+				13B0139D2B7E6E51003B9D64 /* IcebreakerMainView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		13B0139C2B7E6E14003B9D64 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				13B013892B746D77003B9D64 /* UserData.swift */,
+				13B013972B792D0C003B9D64 /* Question.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -269,6 +288,7 @@
 				13B013962B77D489003B9D64 /* UserDataDetailView.swift in Sources */,
 				13B013322B6E1015003B9D64 /* ContentView.swift in Sources */,
 				13B0139A2B792EA7003B9D64 /* AddQuestionView.swift in Sources */,
+				13B0139E2B7E6E51003B9D64 /* IcebreakerMainView.swift in Sources */,
 				13B013942B76C25D003B9D64 /* UserDataRowView.swift in Sources */,
 				13B013982B792D0C003B9D64 /* Question.swift in Sources */,
 				13B013302B6E1015003B9D64 /* Shrestha_Icebreaker_S24App.swift in Sources */,
